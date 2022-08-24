@@ -1,0 +1,19 @@
+<h2>Create new calendar</h2>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="name" required maxlength="20">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="description">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Add people</mat-label>
+        <input matInput>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial (click)="closeDialog()">Ok</button>
+    <button mat-button mat-dialog-close>Close</button>
+</div>

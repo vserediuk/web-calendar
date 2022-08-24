@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button type="button" mat-icon-button class="mat-button">
+            <mat-icon (click)="drawerToggle()">menu</mat-icon>
+        </button>
+        <button type="button" mat-raised-button class="today" (click)="today()" class="mat-button">
+            today
+        </button>
+        <button type="button" mat-icon-button (click)="prev()" class="mat-button">
+            <mat-icon>navigate_before</mat-icon>
+        </button>
+        <button type="button" mat-icon-button (click)="next()" class="mat-button">
+            <mat-icon>navigate_next</mat-icon>
+        </button>
+        <span>{{ currentDate | date:'MMM, y'}}</span>
+        <span class="spacer"></span>
+        <mat-form-field appearance="outline" class="viewChanger">
+            <mat-select [(value)]="initialView" (selectionChange)="onViewSelected($event)">
+                <mat-option *ngFor="let view of calendarViews" [value]="view.value">
+                    {{view.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button type="button" mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>

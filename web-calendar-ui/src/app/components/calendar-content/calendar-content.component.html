@@ -1,0 +1,17 @@
+<mat-drawer-container>
+    <mat-drawer #drawer mode="over" class="mat-sidenav">
+        <app-side-content></app-side-content>
+    </mat-drawer>
+    <mat-drawer-content>
+        <full-calendar [options]="calendarOptions" #fullcalendar></full-calendar>
+            <button type="button" class="add-button" mat-fab color="primary" mat-button [matMenuTriggerFor]="menu">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="onAddEvent()">Add event</button>
+                <button mat-menu-item>Add reminder</button>
+                <button mat-menu-item>Add task</button>
+            </mat-menu>
+    </mat-drawer-content>
+</mat-drawer-container>

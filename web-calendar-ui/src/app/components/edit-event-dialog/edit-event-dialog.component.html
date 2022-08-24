@@ -1,0 +1,45 @@
+<h2>Edit an event</h2>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+        <mat-label>Add title</mat-label>
+        <input matInput [formControl]="getFromForm('title')" required maxlength="20">
+        <mat-error *ngIf="hasError('title', 'required')">Title is required</mat-error>
+        <mat-error *ngIf="hasError('title', 'maxlength')">Enter less than 20 characters</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Add location</mat-label>
+        <input matInput [(ngModel)]="event.place">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Add start date</mat-label>
+        <input matInput [formControl]="getFromForm('start')" required>
+        <mat-error *ngIf="hasError('start', 'required')">Start date is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Add end date</mat-label>
+        <input matInput [formControl]="getFromForm('end')" required>
+        <mat-error *ngIf="hasError('end', 'required')">End date is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Add notify time</mat-label>
+        <input matInput [(ngModel)]="event.notifyTime">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Choose repeat type</mat-label>
+        <mat-select [(ngModel)]="event.repeatType">
+            <mat-option *ngFor="let repeatType of repeatTypes" [value]="repeatType.value">
+              {{repeatType.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Add people</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <input type="file" (change)="onSelectFile($event)">
+</div>
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial [disabled]="!formData.valid" (click)="closeDialog()">Ok</button>
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button (click)="onDeleteEvent()">Delete</button>
+</div>

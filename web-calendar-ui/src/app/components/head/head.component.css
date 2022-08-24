@@ -1,0 +1,12 @@
+.viewChanger {
+    font-size: 11px;
+    transform: translateY(0.6em)
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.mat-button {
+    margin: 5px;
+}
